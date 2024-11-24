@@ -1,0 +1,127 @@
+# this file contains the fastlane.tools configuration
+# you can find the documentation at https://docs.fastlane.tools
+#
+# for a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# for a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+  desc "Run Unit Test"
+  lane :run_unit_test do
+      gradle(task: "testDevelopDebugUnitTest")
+  end
+
+  desc "build develop"
+  lane :build_develop do
+    gradle(
+       task: "assemble",
+       flavor: "develop",
+       build_type: "debug"
+     )
+  end
+
+  desc "build staging"
+    lane :build_staging do
+      gradle(
+         task: "assemble",
+         flavor: "staging",
+         build_type: "debug"
+       )
+    end
+
+  desc "build prod"
+      lane :build_production do
+        gradle(
+           task: "assemble",
+           flavor: "production",
+           build_type: "debug"
+         )
+      end
+
+  desc "deploy develop to app distribution"
+      lane :develop_to_distribution do
+
+        latest_release = firebase_app_distribution_get_latest_release(
+            app: "firebase_app_id"
+          )
+        code_incremented = latest_release[:buildversion].to_i + 1
+
+        gradle(
+           task: "assemble",
+           flavor: "develop",
+           build_type: "debug",
+           properties: {
+                     "android.injected.version.code" => code_incremented
+                   }
+         )
+
+         firebase_app_distribution(
+           firebase_cli_token: "firebase_auth_token",
+           app: "firebase-app-id",
+           groups: "dev",
+           release_notes: "test fastlane upload to firebase and increment_version_code"
+         )
+      end
+
+  desc "deploy staging to app distribution"
+    lane :staging_to_distribution do
+
+      latest_release = firebase_app_distribution_get_latest_release(
+          app: "firebase_app_id"
+        )
+      code_incremented = latest_release[:buildversion].to_i + 1
+
+      gradle(
+         task: "assemble",
+         flavor: "staging",
+         build_type: "debug",
+         properties: {
+                   "android.injected.version.code" => code_incremented
+                 }
+       )
+
+       firebase_app_distribution(
+         firebase_cli_token: "firebase_auth_token",
+         app: "firebase_app_id",
+         groups: "dev",
+         release_notes: "test fastlane upload to firebase and increment_version_code"
+       )
+    end
+
+  desc "deploy production to app distribution"
+        lane :prod_to_distribution do
+
+          latest_release = firebase_app_distribution_get_latest_release(
+              app: "firebase_app_id"
+            )
+          code_incremented = latest_release[:buildversion].to_i + 1
+
+          gradle(
+             task: "assemble",
+             flavor: "production",
+             build_type: "debug",
+             properties: {
+                       "android.injected.version.code" => code_incremented
+                     }
+           )
+
+           firebase_app_distribution(
+             firebase_cli_token: "firebase_auth_token",
+             app: "firebase_app_id",
+             groups: "dev",
+             release_notes: "test fastlane upload to firebase and increment_version_code"
+           )
+        end
+
+end

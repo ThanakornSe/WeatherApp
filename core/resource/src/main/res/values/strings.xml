@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="completed_task">Completed</string>
+    <string name="not_completed_task">Incomplete</string>
+    <string name="error_button_retry">Please try again</string>
+</resources>
