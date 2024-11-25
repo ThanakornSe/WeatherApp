@@ -14,7 +14,7 @@ data class CurrentWeatherModel(
     @SerializedName("base")
     val base: String? = null,
     @SerializedName("clouds")
-    val cloudsResponse: CloudsModel? = null,
+    val clouds: CloudsModel? = null,
     @SerializedName("cod")
     val cod: Int? = null,
     @SerializedName("coord")
@@ -34,7 +34,7 @@ data class CurrentWeatherModel(
     @SerializedName("visibility")
     val visibility: Int? = null,
     @SerializedName("weather")
-    val weatherResponse: List<WeatherModel>? = null,
+    val weather: List<WeatherModel>? = null,
     @SerializedName("wind")
     val wind: WindDataModel? = null,
 ) {
@@ -42,7 +42,7 @@ data class CurrentWeatherModel(
         fun CurrentWeatherResponse.toCurrentWeatherModel(): CurrentWeatherModel =
             CurrentWeatherModel(
                 base = this.base,
-                cloudsResponse = this.cloudsResponse?.toCloudModel(),
+                clouds = this.cloudsResponse?.toCloudModel(),
                 cod = this.cod,
                 coord = this.coord?.toCoordModel(),
                 dt = this.dt,
@@ -52,7 +52,7 @@ data class CurrentWeatherModel(
                 sys = this.sys?.toSysDataModel(),
                 timezone = this.timezone,
                 visibility = this.visibility,
-                weatherResponse = this.weatherResponse?.map { it.toWeatherModel() },
+                weather = this.weatherResponse?.map { it.toWeatherModel() },
                 wind = this.wind?.toWindDataModel()
             )
     }
