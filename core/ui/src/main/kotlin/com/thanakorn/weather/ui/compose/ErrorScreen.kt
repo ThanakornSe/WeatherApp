@@ -30,7 +30,7 @@ import com.thanakorn.weather.resource.theme.space16Dp
 import com.thanakorn.weather.resource.theme.space32Dp
 import com.thanakorn.weather.resource.theme.space64Dp
 import com.thanakorn.weather.resource.theme.white
-import com.thanakorns.todo.resource.R.*
+import com.thanakorn.weather.resource.R.*
 
 @Composable
 fun ErrorScreen(

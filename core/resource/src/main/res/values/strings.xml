@@ -4,4 +4,11 @@
     <string name="completed_task">Completed</string>
     <string name="not_completed_task">Incomplete</string>
     <string name="error_button_retry">Please try again</string>
+
+    <string name="temp_value">%1$s°C</string>
+    <string name="temp_max_temp_low">H:%1$s°C L:%2$s°C</string>
+    <string name="all_cloud">%1$s%%\nCloud</string>
+    <string name="wind_speed">%1$s km/h\nWind speed</string>
+    <string name="humidity">%1$s%%\nHumidity</string>
+    <string name="search_text_field">Enter a city name</string>
 </resources>

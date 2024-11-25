@@ -11,6 +11,7 @@ import com.thanakorn.weather.feature.main.model.WindDataUiState.Companion.toWind
 data class HomeUiState(
     val clouds: CloudsUiState? = null,
     val coord: CoordUiState? = null,
+    val cod: Int? = null,
     val id: Int? = null,
     val main: MainDataUiState? = null,
     val name: String? = null,
@@ -25,6 +26,7 @@ data class HomeUiState(
             HomeUiState(
                 clouds = this.clouds?.toCloudsUiState(),
                 coord = this.coord?.toCoordUiState(),
+                cod = this.cod,
                 id = this.id,
                 main = this.main?.toMainDataUiState(),
                 name = this.name,

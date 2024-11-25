@@ -27,6 +27,7 @@ class HomeViewModel(
                 .onStart { setLoading(true) }
                 .onEach { setLoading(false) }
                 .catch { throwable ->
+                    setLoading(false)
                     setApiError(isApiError = true, errorMessage = throwable.message)
                 }
                 .map { currentWeather ->

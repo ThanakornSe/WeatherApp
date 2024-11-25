@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.thanakorn.weather.feature.main.ui.HomeMainScreen
 import com.thanakorn.weather.ui.navigation.Home
 import com.thanakorn.weather.ui.navigation.Screen
 
@@ -13,7 +14,7 @@ fun NavGraphBuilder.homeFeatureNavHost(navController: NavHostController) {
 
     navigation<Screen>(startDestination = Home) {
         composable<Home> {
-
+            HomeMainScreen(navController)
         }
     }
 
