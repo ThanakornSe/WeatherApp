@@ -36,7 +36,8 @@ class HomeViewModel(
                 .collectLatest { homeUiStates ->
                     _uiState.update { currentState ->
                         currentState.copy(
-                            mainUiState = homeUiStates
+                            mainUiState = homeUiStates,
+                            isApiError = false,
                         )
                     }
                 }

@@ -41,7 +41,7 @@ fun AppTheme(
 ) {
     val systemUiController = rememberSystemUiController()
     systemUiController.setSystemBarsColor(
-        color = statusBar
+        color = black
     )
 
     val colorScheme = when {

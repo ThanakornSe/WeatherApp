@@ -28,7 +28,7 @@ import com.thanakorn.weather.resource.theme.backgroundInfoColor
 import com.thanakorn.weather.resource.theme.borderColor
 import com.thanakorn.weather.resource.theme.space150Dp
 import com.thanakorn.weather.resource.theme.space16Dp
-import com.thanakorn.weather.resource.theme.space1Dp
+import com.thanakorn.weather.resource.theme.space2Dp
 import com.thanakorn.weather.resource.theme.white
 
 @Composable
@@ -87,7 +87,7 @@ fun WeatherInfo(uiState: HomeUiState) {
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(space16Dp))
                 .border(
-                    width = space1Dp,
+                    width = space2Dp,
                     color = borderColor,
                     shape = RoundedCornerShape(space16Dp)
                 )
@@ -100,7 +100,7 @@ fun WeatherInfo(uiState: HomeUiState) {
         ) {
             uiState.clouds?.all?.let {
                 TempInfoDetail(
-                    painterResource(drawable.cloudy) , value = stringResource(
+                    painterResource(drawable.cloudy), value = stringResource(
                         R.string.all_cloud,
                         it.toString()
                     )

@@ -11,4 +11,6 @@
     <string name="wind_speed">%1$s km/h\nWind speed</string>
     <string name="humidity">%1$s%%\nHumidity</string>
     <string name="search_text_field">Enter a city name</string>
+    <string name="empty_screen_txt">Please enter a city name to get weather information</string>
+    <string name="error_screen_try_again">Please try again</string>
 </resources>

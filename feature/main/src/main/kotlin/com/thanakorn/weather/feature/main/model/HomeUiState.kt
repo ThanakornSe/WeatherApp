@@ -36,5 +36,6 @@ data class HomeUiState(
                 weather = this.weather?.map { it.toWeatherUiState() },
                 wind = this.wind?.toWindDataUiState()
             )
+
     }
 }

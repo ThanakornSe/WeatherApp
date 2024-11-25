@@ -11,15 +11,6 @@ open class BaseViewModel<T> : ViewModel() {
     protected val _uiState = MutableStateFlow(BaseUiState<T>())
     open val uiState: StateFlow<BaseUiState<T>> get() = _uiState.asStateFlow()
 
-    fun clearErrorMessage() {
-        _uiState.update { currentState ->
-            currentState.copy(
-                errorMessage = null,
-                isApiError = false,
-            )
-        }
-    }
-
     fun setLoading(isLoading: Boolean) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -31,6 +22,7 @@ open class BaseViewModel<T> : ViewModel() {
     fun setApiError(isApiError: Boolean, errorMessage: String? = null) {
         _uiState.update { currentState ->
             currentState.copy(
+                mainUiState = null,
                 isApiError = isApiError,
                 errorMessage = errorMessage,
             )
