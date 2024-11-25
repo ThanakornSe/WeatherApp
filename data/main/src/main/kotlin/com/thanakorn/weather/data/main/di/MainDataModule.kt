@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 
 val mainDataModule = module {
     includes(retrofitModule, coreCommonModule)
-    factory { provideWeatherService(get()) }
+    single { provideWeatherService(get()) }
     single<WeatherDataRepository> { WeatherDataRepositoryImpl(get(),get()) }
 
 }

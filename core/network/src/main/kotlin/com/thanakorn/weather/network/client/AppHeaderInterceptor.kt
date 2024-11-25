@@ -6,20 +6,9 @@ import okhttp3.Interceptor
 import okhttp3.Request
 
 fun createHttpHeaderInterceptor(appConfig: AppConfiguration): Interceptor =
-    Interceptor {
-        it.proceed(
-            it.request().newBuilder().headerSetup(appConfig)
-        )
+    Interceptor { chain ->
+        val newUrl = chain.request().url.newBuilder()
+            .addQueryParameter(Constants.API_KEY, appConfig.apiKey)
+            .build()
+        chain.proceed(chain.request().newBuilder().url(newUrl).build())
     }
-
-fun Request.Builder.headerSetup(appConfig: AppConfiguration): Request {
-
-    appConfig.apiKey?.let { value ->
-        header(
-            Constants.API_KEY,
-            value
-        )
-    }
-
-    return build()
-}
