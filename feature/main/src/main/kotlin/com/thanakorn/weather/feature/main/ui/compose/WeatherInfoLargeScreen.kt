@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -38,7 +37,6 @@ import com.thanakorn.weather.resource.theme.AppTheme
 import com.thanakorn.weather.resource.theme.Typography
 import com.thanakorn.weather.resource.theme.backgroundInfoColor
 import com.thanakorn.weather.resource.theme.borderColor
-import com.thanakorn.weather.resource.theme.space150Dp
 import com.thanakorn.weather.resource.theme.space16Dp
 import com.thanakorn.weather.resource.theme.space250Dp
 import com.thanakorn.weather.resource.theme.space2Dp
