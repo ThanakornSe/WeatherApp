@@ -21,6 +21,8 @@ class WeatherDataRepositoryImpl(
                     response.body()?.let { result ->
                         emit(result)
                     }
+                } else {
+                    throw Exception(response.message())
                 }
             } catch (e: Exception) {
                 throw e

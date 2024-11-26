@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.thanakorns.todo.resource"
+    namespace = "com.thanakorn.weather.resource"
     compileSdk = 34
 
     defaultConfig {

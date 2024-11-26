@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.thanakorns.todo.resource.R
+import com.thanakorn.weather.resource.R
 
 // Set of Material typography styles to start with
 private val quickSandFont =
