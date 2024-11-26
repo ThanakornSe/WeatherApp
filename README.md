@@ -11,6 +11,9 @@
 - Loading and Error handling screen
 - Support mutiple screen size
 
+**** Important note please ensure that api must put into local.gradle as API_KEY="your api key" ****
+<br><br>
+
 <p align="center">
 Weather information for compact screen <br><br>
 <img src="https://github.com/user-attachments/assets/7b88344e-cfd5-4f5c-ae13-0897eaf84be4" width="350">
