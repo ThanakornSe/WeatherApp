@@ -39,6 +39,7 @@ import androidx.navigation.NavHostController
 import com.thanakorn.weather.feature.main.model.HomeUiState
 import com.thanakorn.weather.feature.main.ui.compose.WelcomeScreen
 import com.thanakorn.weather.feature.main.ui.compose.WeatherInfo
+import com.thanakorn.weather.feature.main.ui.compose.WeatherInfoLargeScreen
 import com.thanakorn.weather.feature.main.viewmodel.HomeViewModel
 import com.thanakorn.weather.resource.R.drawable
 import com.thanakorn.weather.resource.R.string
@@ -52,7 +53,9 @@ import com.thanakorn.weather.resource.theme.white
 import com.thanakorn.weather.ui.base.BaseUiState
 import com.thanakorn.weather.ui.base.BaseViewModelCommonActionCompose
 import com.thanakorn.weather.ui.compose.ErrorScreen
+import com.thanakorn.weather.ui.compose.WindowInfo
 import com.thanakorn.weather.ui.compose.gradientBackground
+import com.thanakorn.weather.ui.compose.rememberWindowInfo
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -85,6 +88,7 @@ fun HomeScreen(
 ) {
     var text by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+    val windowInfo = rememberWindowInfo()
 
     Column(
         modifier = Modifier
@@ -165,7 +169,11 @@ fun HomeScreen(
         } else {
             uiState.mainUiState?.let {
                 Spacer(modifier = Modifier.height(space16Dp))
-                WeatherInfo(uiState = it)
+                if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) {
+                    WeatherInfo(uiState = it)
+                } else {
+                    WeatherInfoLargeScreen(uiState = it)
+                }
             } ?: run {
                 Spacer(modifier = Modifier.weight(0.7f))
                 WelcomeScreen()
